@@ -6,6 +6,7 @@ type Props = {
   title: string;
   onPress: () => void;
 };
+
 export default function PlantlyButton({ title, onPress }: Props) {
   const handlePress = () => {
     if (Platform.OS !== "web") {
