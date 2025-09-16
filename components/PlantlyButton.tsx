@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 18,
     paddingVertical: 12,
     borderRadius: 6,
-    backgroundColor: theme.colorGreeen,
+    backgroundColor: theme.colorGreen,
   },
   buttonPressed: {
     backgroundColor: theme.colorLeafyGreen,

@@ -13,7 +13,7 @@ export default function Layout() {
   }
 
   return (
-    <Tabs screenOptions={{ tabBarActiveTintColor: theme.colorGreeen }}>
+    <Tabs screenOptions={{ tabBarActiveTintColor: theme.colorGreen }}>
       <Tabs.Screen
         name="index"
         options={{
