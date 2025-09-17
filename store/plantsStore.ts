@@ -1,18 +1,24 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
+import saveImage from "@/utils/saveImage";
 
 export type PlantType = {
   id: string;
   name: string;
   wateringFrequencyDays: number;
   lastWateredAtTimestamp?: number;
+  imageUri?: string;
 };
 
 type PlantsStore = {
   nextId: number;
   plants: PlantType[];
-  addPlant: (name: string, wateringFrequencyDays: number) => void;
+  addPlant: (
+    name: string,
+    wateringFrequencyDays: number,
+    imageUri?: string,
+  ) => void;
   removePlant: (plantId: string) => void;
   waterPlant: (plantId: string) => void;
 };
@@ -22,7 +28,12 @@ export const usePlantsStore = create(
     (set) => ({
       plants: [],
       nextId: 1,
-      addPlant: (name: string, wateringFrequencyDays: number) => {
+      addPlant: (
+        name: string,
+        wateringFrequencyDays: number,
+        imageUri?: string,
+      ) => {
+        const newFilePath = saveImage(imageUri);
         return set((state) => {
           return {
             ...state,
@@ -32,6 +43,7 @@ export const usePlantsStore = create(
                 id: String(state.nextId),
                 name,
                 wateringFrequencyDays,
+                imageUri: newFilePath ?? undefined,
               },
               ...state.plants,
             ],
