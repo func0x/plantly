@@ -33,7 +33,7 @@ export default function NewScreen() {
     }
 
     addPlant(name, Number(days));
-    router.navigate("/");
+    router.back();
   };
 
   return (
