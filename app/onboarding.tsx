@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-evenly",
     alignItems: "center",
     backgroundColor: theme.colorWhite,
+    paddingHorizontal: 8,
   },
   heading: {
     fontSize: 42,
@@ -54,6 +55,5 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: theme.colorWhite,
     textAlign: "center",
-    paddingHorizontal: 12,
   },
 });

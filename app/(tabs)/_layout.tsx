@@ -1,8 +1,7 @@
 import { Link, Redirect, Tabs } from "expo-router";
-import { Entypo, Feather } from "@expo/vector-icons";
+import { AntDesign, Entypo, Feather } from "@expo/vector-icons";
 import { theme } from "@/theme";
 import { useUserStore } from "@/store/userStore";
-import { AntDesign } from "@expo/vector-icons";
 import { Pressable } from "react-native";
 
 export default function Layout() {
