@@ -20,6 +20,16 @@ export default function PlantDetails() {
   );
   const navigation = useNavigation();
 
+  console.log("params", params);
+
+  useEffect(() => {
+    if (params.action === "water") {
+      if (typeof plantId === "string") {
+        waterPlant(plantId);
+      }
+    }
+  }, []);
+
   useEffect(() => {
     navigation.setOptions({
       title: plant?.name,
