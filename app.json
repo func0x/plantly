@@ -30,6 +30,16 @@
       "favicon": "./assets/favicon.png",
       "bundler": "metro"
     },
-    "plugins": ["expo-router", "expo-font"]
+    "plugins": [
+      "expo-router",
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "node_modules/@expo-google-fonts/caveat/400Regular/Caveat_400Regular.ttf"
+          ]
+        }
+      ]
+    ]
   }
 }
