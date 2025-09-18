@@ -1,5 +1,5 @@
-import { Redirect, Tabs } from "expo-router";
-import { Entypo, Feather } from "@expo/vector-icons";
+import { Redirect } from "expo-router";
+import { NativeTabs, Icon, Label } from "expo-router/unstable-native-tabs";
 import { theme } from "@/theme";
 import { useUserStore } from "@/store/userStore";
 
@@ -13,28 +13,23 @@ export default function Layout() {
   }
 
   return (
-    <Tabs screenOptions={{ tabBarActiveTintColor: theme.colorGreen }}>
-      <Tabs.Screen
-        name="(home)"
-        options={{
-          title: "Home",
-          headerShown: false,
-          tabBarShowLabel: false,
-          tabBarIcon: ({ size, color }) => (
-            <Entypo name="leaf" size={size} color={color} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="profile"
-        options={{
-          title: "Profile",
-          tabBarShowLabel: false,
-          tabBarIcon: ({ size, color }) => (
-            <Feather name="user" size={size} color={color} />
-          ),
-        }}
-      />
-    </Tabs>
+    <NativeTabs>
+      <NativeTabs.Trigger name="(home)">
+        <Label>Home</Label>
+        <Icon
+          selectedColor={theme.colorGreen}
+          sf={{ default: "house", selected: "house.fill" }}
+          drawable="ic_menu_mylocation"
+        />
+      </NativeTabs.Trigger>
+      <NativeTabs.Trigger name="profile">
+        <Label>Profile</Label>
+        <Icon
+          selectedColor={theme.colorGreen}
+          sf={{ default: "person", selected: "person.fill" }}
+          drawable="ic_menu_preferences"
+        />
+      </NativeTabs.Trigger>
+    </NativeTabs>
   );
 }
